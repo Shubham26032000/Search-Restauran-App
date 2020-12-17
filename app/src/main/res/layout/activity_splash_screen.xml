@@ -18,14 +18,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.908"
+        android:contentDescription="LOGO IMAGE"
         app:srcCompat="@drawable/ic_splash" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/coiny"
-        android:letterSpacing="3"
+
+        android:includeFontPadding="false"
         android:text="Get Nearby Restaurants"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="#FFFFFF"
