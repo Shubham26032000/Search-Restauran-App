@@ -39,7 +39,8 @@ public class RestaurantDetails extends AppCompatActivity {
         LoadIntent();
 
         tvNameRest.setText(name);
-        Picasso.with(getApplicationContext()).load(image_url).into(ivMainPic);
+        if(!image_url.isEmpty())
+          Picasso.with(getApplicationContext()).load(image_url).into(ivMainPic);
         tvAddress1.setText(address);
         tvcusinesData.setText(cuisine);
         tvRating.setText(rating+"/"+"5");

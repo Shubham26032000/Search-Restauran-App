@@ -30,7 +30,7 @@ public interface JsonPlaceHolder {
     @GET("api/v2.1/search")
     Call<SearchRestrarunts> getRestaurants(
 
-            @Query("collection_id") String collectionId
+            @Query("collection_id") int collectionId
     );
 
     @Headers({"Accept: application/json",

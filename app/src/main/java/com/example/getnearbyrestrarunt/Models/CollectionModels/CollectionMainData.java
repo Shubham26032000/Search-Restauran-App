@@ -4,7 +4,7 @@ public class CollectionMainData {
 
     private String image_url;
     private  String title;
-    private String collection_id;
+    private int collection_id;
 
     public String getImage_url() {
         return image_url;
@@ -14,7 +14,7 @@ public class CollectionMainData {
         return title;
     }
 
-    public String getCollection_id() {
+    public int getCollection_id() {
         return collection_id;
     }
 }

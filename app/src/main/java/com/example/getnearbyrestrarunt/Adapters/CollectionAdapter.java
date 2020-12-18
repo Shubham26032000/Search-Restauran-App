@@ -21,12 +21,17 @@ import java.util.List;
 
 public class CollectionAdapter  extends RecyclerView.Adapter<CollectionAdapter.ViewHolder2> {
 
+
+    OnItemClick activty;
+    public interface OnItemClick{
+        public void onItemClick(int position);
+    }
     private Context context;
     private List<CollectionList> list;
 
 
     public CollectionAdapter(Context context, List<CollectionList> list) {
-        this.context = context;
+        this.activty = (OnItemClick) context;
         this.list = list;
     }
 
@@ -38,7 +43,12 @@ public class CollectionAdapter  extends RecyclerView.Adapter<CollectionAdapter.V
             ivCollection = itemView.findViewById(R.id.ivCollection);
             tvTitle = itemView.findViewById(R.id.tvEvent);
 
-
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                        activty.onItemClick(getAdapterPosition());
+                }
+            });
         }
     }
 
@@ -57,7 +67,7 @@ public class CollectionAdapter  extends RecyclerView.Adapter<CollectionAdapter.V
         holder.tvTitle.setText(collectionMainData.getTitle());
 
         if(!collectionMainData.getImage_url().isEmpty()){
-            Picasso.with(context).load(collectionMainData.getImage_url()).into(holder.ivCollection);
+            Picasso.with((Context) activty).load(collectionMainData.getImage_url()).into(holder.ivCollection);
         }
 
 

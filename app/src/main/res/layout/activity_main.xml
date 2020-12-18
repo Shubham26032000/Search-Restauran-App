@@ -6,108 +6,143 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingLeft="16dp"
-        android:paddingTop="4dp"
-        android:paddingRight="16dp">
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_location" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/etLocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="Search Location"
-            android:inputType="textPersonName" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingTop="4dp"
+                android:paddingRight="16dp">
 
-        <ImageView
-            android:id="@+id/btnSearchLocaton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_search" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_location" />
 
-    </LinearLayout>
+                <androidx.appcompat.widget.SearchView
+                    android:padding="2dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/searchLocation"/>
 
-    <LinearLayout
-        android:id="@+id/queryLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingLeft="16dp"
-        android:paddingTop="6dp"
-        android:paddingRight="16dp">
+            </LinearLayout>
 
-        <EditText
-            android:id="@+id/etSearchString"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="Cuisine,Restaurant Name,Food Name"
-            android:inputType="textPersonName" />
+            <LinearLayout
+                android:id="@+id/queryLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingTop="6dp"
+                android:paddingRight="16dp">
 
-        <ImageView
-            android:id="@+id/btnSearchCusne"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_search" />
+                <androidx.appcompat.widget.SearchView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:elevation="@dimen/cardview_compat_inset_shadow"
+                   android:layout_marginTop="3dp"
+                    android:layout_marginBottom="4dp"
+                    android:id="@+id/searchCusineView"/>
 
-    </LinearLayout>
+            </LinearLayout>
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
-    <TextView
-        android:id="@+id/tvInfo1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="6dp"
-        android:text="Special Collection"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#000000"
-        android:textStyle="bold" />
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/mainLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="4dp"
-        android:paddingTop="5dp"
-        android:paddingRight="4dp"
-        android:paddingBottom="5dp"
-        android:scrollbars="vertical" />
+                <TextView
+                    android:id="@+id/tvInfo1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="6dp"
+                    android:text="Special Collection"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/tvInfo2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="6dp"
-        android:text="Result Restaurants"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#010101"
-        android:textStyle="bold" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="4dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="4dp"
+                    android:paddingBottom="5dp"
+                    android:scrollbars="vertical" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="4dp"
-        android:paddingTop="5dp"
-        android:paddingRight="4dp"
-        android:paddingBottom="5dp"
-        android:scrollbars="vertical" />
+                <TextView
+                    android:id="@+id/tvInfo2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="6dp"
+                    android:text="Result Restaurants"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textColor="#010101"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="4dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="4dp"
+                    android:paddingBottom="5dp"
+                    android:scrollbars="vertical" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <LinearLayout
+                android:id="@+id/internet_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="100dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivHandler"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginBottom="3dp"
+                    android:padding="12dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icons8_without_internet_50" />
+
+                <TextView
+                    android:id="@+id/tvHandler"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|center_horizontal"
+                    android:gravity="center|center_horizontal"
+                    android:text="Oops! SomeThing went wrong"
+                    android:textColor="#000000" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+</ScrollView>
+
 </LinearLayout>
