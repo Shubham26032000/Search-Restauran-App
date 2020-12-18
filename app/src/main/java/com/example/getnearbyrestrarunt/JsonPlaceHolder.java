@@ -47,7 +47,13 @@ public interface JsonPlaceHolder {
             @Query("query") String location
     );
 
-
+    @Headers({"Accept: application/json",
+            "user-key: 94e6664e979eb4d1b9b7406d4a864daf"})
+    @GET("api/v2.1/search")
+    Call<SearchRestrarunts> getRestaurantsBylocation(
+            @Query("lat") double latitude,
+            @Query("lon") double longitude
+    );
 
 
 }

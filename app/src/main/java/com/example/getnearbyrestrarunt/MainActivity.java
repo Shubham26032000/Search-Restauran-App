@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements CollectionAdapter
                 internetLayout.setVisibility(View.INVISIBLE);
                 internetLayout.setVisibility(View.INVISIBLE);
                 if(!query.trim().isEmpty()){
-                    String location = query.toString().trim().toLowerCase();
+                    String location = query.trim().toLowerCase();
                     getLocation(location);
                 }else{
                     Toast.makeText(MainActivity.this, "Please Enter Location", Toast.LENGTH_SHORT).show();
@@ -207,6 +207,45 @@ public class MainActivity extends AppCompatActivity implements CollectionAdapter
         });
     }
 
+    private void getRestaurantsDeafult(double latitude,double longitude){
+        isConnected();
+        this.query = query;
+        Call<SearchRestrarunts> call = jsonPlaceHolder.getRestaurantsBylocation(LATITUDE,LONGITUDE);
+
+        call.enqueue(new Callback<SearchRestrarunts>() {
+            @Override
+            public void onResponse(Call<SearchRestrarunts> call, Response<SearchRestrarunts> response) {
+                SearchRestrarunts searchRestrarunts = response.body();
+                progressBar.setVisibility(View.INVISIBLE);
+                if(!response.isSuccessful()){
+                    Toast.makeText(MainActivity.this, "Not Found Restaurants!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                List<RestraruntsList> lists = searchRestrarunts.getRestraruntsLists();
+                recyclerView.setHasFixedSize(true);
+                if(lists.size() != 0 && !lists.isEmpty()){
+                    tvInfo2.setVisibility(View.VISIBLE);
+                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MainActivity.this);
+                    recyclerView.setLayoutManager(linearLayoutManager);
+
+                    RestaurantItemAdapter itemAdapter = new RestaurantItemAdapter(MainActivity.this,lists);
+                    recyclerView.setAdapter(itemAdapter);
+
+                }else{
+                    resultNotFound();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<SearchRestrarunts> call, Throwable t) {
+
+                Toast.makeText(MainActivity.this, "Restaurants Not found", Toast.LENGTH_SHORT).show();
+            }
+
+        });
+    }
+
     private void getLocation(String location) {
         isConnected();
         Call<LocationData> call = jsonPlaceHolder.getLocationCords(location);
@@ -235,6 +274,7 @@ public class MainActivity extends AppCompatActivity implements CollectionAdapter
                     CITY_ID = locationDataList.getCity_id();
 
                 }
+                getRestaurantsDeafult(LATITUDE,LONGITUDE);
             }
             @Override
             public void onFailure(Call<LocationData> call, Throwable t) {

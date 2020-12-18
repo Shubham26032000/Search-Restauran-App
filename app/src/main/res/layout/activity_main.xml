@@ -30,11 +30,14 @@
                     android:src="@drawable/ic_location" />
 
                 <androidx.appcompat.widget.SearchView
-                    android:padding="2dp"
-                    android:layout_marginLeft="6dp"
+                    android:id="@+id/searchLocation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/searchLocation"/>
+                    android:layout_marginLeft="6dp"
+                    app:searchHintIcon="@drawable/ic_location"
+                    android:autofillHints="Location"
+                    android:padding="2dp"
+                    app:queryHint="Enter Location" />
 
             </LinearLayout>
 
@@ -51,6 +54,7 @@
                 <androidx.appcompat.widget.SearchView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:queryHint="Search cuisine/restaurant"
                     android:padding="5dp"
                     android:elevation="@dimen/cardview_compat_inset_shadow"
                    android:layout_marginTop="3dp"
