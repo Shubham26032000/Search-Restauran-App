@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".ActivityAndInterface.MainActivity">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -36,7 +36,9 @@
                     android:layout_marginLeft="6dp"
                     app:searchHintIcon="@drawable/ic_location"
                     android:autofillHints="Location"
-                    android:padding="2dp"
+                    android:layout_margin="2dp"
+                    android:background="#F2F0F5"
+                    android:padding="3dp"
                     app:queryHint="Enter Location" />
 
             </LinearLayout>

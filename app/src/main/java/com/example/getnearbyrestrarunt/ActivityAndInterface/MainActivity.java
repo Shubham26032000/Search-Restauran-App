@@ -1,23 +1,18 @@
-package com.example.getnearbyrestrarunt;
+package com.example.getnearbyrestrarunt.ActivityAndInterface;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +24,7 @@ import com.example.getnearbyrestrarunt.Models.LocationSearchData.LocationData;
 import com.example.getnearbyrestrarunt.Models.LocationSearchData.LocationDataList;
 import com.example.getnearbyrestrarunt.Models.RestraruntsList;
 import com.example.getnearbyrestrarunt.Models.SearchRestrarunts;
+import com.example.getnearbyrestrarunt.R;
 
 import java.util.List;
 
@@ -37,6 +33,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+import static android.view.View.GONE;
 
 public class MainActivity extends AppCompatActivity implements CollectionAdapter.OnItemClick{
     ProgressBar progressBar;
@@ -87,9 +85,9 @@ public class MainActivity extends AppCompatActivity implements CollectionAdapter
 
         recyclerViewHorizontal = findViewById(R.id.recyclerViewHorizontal);
         tvInfo1 = findViewById(R.id.tvInfo1);
-        tvInfo1.setVisibility(View.GONE);
+        tvInfo1.setVisibility(GONE);
         tvInfo2 = findViewById(R.id.tvInfo2);
-        tvInfo2.setVisibility(View.GONE);
+        tvInfo2.setVisibility(GONE);
         tvInfo1.setVisibility(View.INVISIBLE);
         tvInfo2.setVisibility(View.INVISIBLE);
 
@@ -387,11 +385,11 @@ public class MainActivity extends AppCompatActivity implements CollectionAdapter
         boolean isConnected = activeNetwork != null &&
                 activeNetwork.isConnectedOrConnecting();
         if (isConnected){
-            internetLayout.setVisibility(View.GONE);
+            internetLayout.setVisibility(GONE);
             layoutCompat.setVisibility(View.VISIBLE);
         }else{
             internetLayout.setVisibility(View.VISIBLE);
-            layoutCompat.setVisibility(View.GONE);
+            layoutCompat.setVisibility(GONE);
             tvHandler.setText("Oops make Sure to Connect Internet!");
             ivHandler.setVisibility(View.VISIBLE);
             ivHandler.setImageResource(R.drawable.icons8_without_internet_50);
@@ -402,14 +400,14 @@ public class MainActivity extends AppCompatActivity implements CollectionAdapter
 
     public void resultNotFound(){
         internetLayout.setVisibility(View.VISIBLE);
-        layoutCompat.setVisibility(View.GONE);
+        layoutCompat.setVisibility(GONE);
         tvHandler.setText("Sorry! not matching restaurants to your result");
         ivHandler.setImageResource(R.drawable.ic_error_foreground);
         ivHandler.setVisibility(View.VISIBLE);
     }
     public void resultNotFound(int a){
         internetLayout.setVisibility(View.VISIBLE);
-        layoutCompat.setVisibility(View.GONE);
+        layoutCompat.setVisibility(GONE);
         tvHandler.setText("Sorry For Inconvenience ! Our services are not present for that location");
         ivHandler.setImageResource(R.drawable.ic_error_foreground);
         ivHandler.setVisibility(View.VISIBLE);

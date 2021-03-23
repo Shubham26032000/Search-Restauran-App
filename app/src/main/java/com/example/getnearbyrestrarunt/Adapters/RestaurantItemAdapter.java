@@ -15,7 +15,7 @@ import com.example.getnearbyrestrarunt.Constant.Constant;
 import com.example.getnearbyrestrarunt.Models.Restaurants;
 import com.example.getnearbyrestrarunt.Models.RestraruntsList;
 import com.example.getnearbyrestrarunt.R;
-import com.example.getnearbyrestrarunt.RestaurantDetails;
+import com.example.getnearbyrestrarunt.ActivityAndInterface.RestaurantDetails;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

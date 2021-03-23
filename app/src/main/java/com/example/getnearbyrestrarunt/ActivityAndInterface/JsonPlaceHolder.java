@@ -1,4 +1,4 @@
-package com.example.getnearbyrestrarunt;
+package com.example.getnearbyrestrarunt.ActivityAndInterface;
 
 import com.example.getnearbyrestrarunt.Models.CollectionModels.CollectionData;
 import com.example.getnearbyrestrarunt.Models.LocationSearchData.LocationData;
@@ -15,6 +15,7 @@ import retrofit2.http.QueryMap;
 
 public interface JsonPlaceHolder {
 
+    //This Interface method will fetch data based on location cordinates
     @Headers({"Accept: application/json",
             "user-key: 94e6664e979eb4d1b9b7406d4a864daf"})
     @GET("api/v2.1/search")
@@ -25,6 +26,7 @@ public interface JsonPlaceHolder {
             @Query("entity_id") double entitype
     );
 
+    //This Interface method will give restaurants based on collection option present in API
     @Headers({"Accept: application/json",
             "user-key: 94e6664e979eb4d1b9b7406d4a864daf"})
     @GET("api/v2.1/search")
@@ -33,6 +35,8 @@ public interface JsonPlaceHolder {
             @Query("collection_id") int collectionId
     );
 
+
+  //This method will fetch data based on city enter by user
     @Headers({"Accept: application/json",
             "user-key: 94e6664e979eb4d1b9b7406d4a864daf"})
     @GET("api/v2.1/collections")
@@ -40,6 +44,7 @@ public interface JsonPlaceHolder {
             @Query("city_id") int cityId
     );
 
+//This method fetch data based on location enter by user
     @Headers({"Accept: application/json",
             "user-key: 94e6664e979eb4d1b9b7406d4a864daf"})
     @GET("api/v2.1/locations")
@@ -47,6 +52,7 @@ public interface JsonPlaceHolder {
             @Query("query") String location
     );
 
+//This method fetch restaurants based on lattitue and longitude
     @Headers({"Accept: application/json",
             "user-key: 94e6664e979eb4d1b9b7406d4a864daf"})
     @GET("api/v2.1/search")

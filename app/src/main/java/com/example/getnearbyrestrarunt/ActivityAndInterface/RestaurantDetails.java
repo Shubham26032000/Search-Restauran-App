@@ -1,4 +1,4 @@
-package com.example.getnearbyrestrarunt;
+package com.example.getnearbyrestrarunt.ActivityAndInterface;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.getnearbyrestrarunt.Constant.Constant;
+import com.example.getnearbyrestrarunt.R;
 import com.squareup.picasso.Picasso;
 
 public class RestaurantDetails extends AppCompatActivity {
@@ -20,6 +21,7 @@ public class RestaurantDetails extends AppCompatActivity {
 
     String latitude="",longitude="", phone="",url="";
     String name="",cuisine="",address="",rating="",timing="",image_url="",ratingMessage="";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +56,11 @@ public class RestaurantDetails extends AppCompatActivity {
                 String shareBody = url;
                 sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Get Near By Restaurant");
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
-                startActivity(Intent.createChooser(sharingIntent, "Share via"));
+                startActivityForResult(Intent.createChooser(sharingIntent, "Share via"),0);
             }
         });
+
+
 
         tvRatingMessage.setText(ratingMessage);
         ivUrl.setOnClickListener(new View.OnClickListener() {

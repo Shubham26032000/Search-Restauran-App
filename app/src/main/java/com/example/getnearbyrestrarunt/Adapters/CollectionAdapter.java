@@ -10,8 +10,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.getnearbyrestrarunt.MainActivity;
-import com.example.getnearbyrestrarunt.Models.CollectionModels.CollectionData;
 import com.example.getnearbyrestrarunt.Models.CollectionModels.CollectionList;
 import com.example.getnearbyrestrarunt.Models.CollectionModels.CollectionMainData;
 import com.example.getnearbyrestrarunt.R;
@@ -19,26 +17,26 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class CollectionAdapter  extends RecyclerView.Adapter<CollectionAdapter.ViewHolder2> {
+public class CollectionAdapter  extends RecyclerView.Adapter<CollectionAdapter.CollectionViewHolder> {
 
 
-    OnItemClick activty;
+    OnItemClick activity;
     public interface OnItemClick{
-        public void onItemClick(int position);
+         void onItemClick(int position);
     }
     private Context context;
     private List<CollectionList> list;
 
 
     public CollectionAdapter(Context context, List<CollectionList> list) {
-        this.activty = (OnItemClick) context;
+        this.activity = (OnItemClick) context;
         this.list = list;
     }
 
-    public class ViewHolder2 extends RecyclerView.ViewHolder {
+    public class CollectionViewHolder extends RecyclerView.ViewHolder {
         ImageView ivCollection;
         TextView tvTitle;
-        public ViewHolder2(@NonNull View itemView) {
+        public CollectionViewHolder(@NonNull View itemView) {
             super(itemView);
             ivCollection = itemView.findViewById(R.id.ivCollection);
             tvTitle = itemView.findViewById(R.id.tvEvent);
@@ -46,7 +44,7 @@ public class CollectionAdapter  extends RecyclerView.Adapter<CollectionAdapter.V
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                        activty.onItemClick(getAdapterPosition());
+                        activity.onItemClick(getAdapterPosition());
                 }
             });
         }
@@ -55,19 +53,19 @@ public class CollectionAdapter  extends RecyclerView.Adapter<CollectionAdapter.V
 
     @NonNull
     @Override
-    public ViewHolder2 onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CollectionViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.collections_item,parent,false);
-        return new ViewHolder2(view);
+        return new CollectionViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder2 holder, int position) {
+    public void onBindViewHolder(@NonNull CollectionViewHolder holder, int position) {
         CollectionList collectionList = list.get(position);
         CollectionMainData collectionMainData = collectionList.getCollections();
         holder.tvTitle.setText(collectionMainData.getTitle());
 
         if(!collectionMainData.getImage_url().isEmpty()){
-            Picasso.with((Context) activty).load(collectionMainData.getImage_url()).into(holder.ivCollection);
+            Picasso.with((Context) activity).load(collectionMainData.getImage_url()).into(holder.ivCollection);
         }
 
 

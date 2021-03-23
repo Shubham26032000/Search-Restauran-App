@@ -13,14 +13,14 @@
         android:roundIcon="@drawable/icons8_restaurant_48"
         android:supportsRtl="true"
         android:theme="@style/Theme.GetNearByRestrarunt">
-        <activity android:name=".MainActivity"
+        <activity android:name=".ActivityAndInterface.MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
-            android:name=".RestaurantDetails"
+            android:name=".ActivityAndInterface.RestaurantDetails"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".ActivityAndInterface.MainActivity" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".ActivityAndInterface.SplashScreen"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:launchMode="singleTop">
             <intent-filter>

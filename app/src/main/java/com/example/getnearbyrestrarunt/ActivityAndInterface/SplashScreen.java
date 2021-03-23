@@ -1,10 +1,12 @@
-package com.example.getnearbyrestrarunt;
+package com.example.getnearbyrestrarunt.ActivityAndInterface;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.example.getnearbyrestrarunt.R;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -22,4 +24,6 @@ public class SplashScreen extends AppCompatActivity {
             }
         },1300);
     }
+
+
 }
